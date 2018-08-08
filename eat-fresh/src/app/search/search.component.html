@@ -2,10 +2,10 @@
   <input #searchBox id="search-box" (keyup)="search(searchBox.value)" placeholder="Product Search"/>
 
   <ul class="search-result">
-    <!--<li *ngFor="let hero of heroes$ | async" >
-      <a routerLink="/detail/{{hero.id}}">
-        {{hero.name}}
+    <li *ngFor="let product of products$ | async" >
+      <a routerLink="{{product.id}}">
+        {{product.name}}
       </a>
-    </li>-->
+    </li>
   </ul>
 </div>
