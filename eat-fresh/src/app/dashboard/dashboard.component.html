@@ -1,11 +1,20 @@
-<h3>Eat Fresh</h3>
-<!--<div class="grid grid-pad">
-  <a *ngFor="let hero of heroes" class="col-1-4"
-      routerLink="/detail/{{hero.id}}">
-    <div class="module hero">
-      <h4>{{hero.name}}</h4>
+<app-search></app-search>
+<div class="grid grid-pad">
+  <mat-grid-list cols="4" rowHeight="100px">
+    <mat-grid-tile *ngFor="let product of products">
+        {{product.name}} : {{product.price}}
+        <div  *ngFor="let image of product.images" >
+            <img style="width: 75px; height: 70px" src='{{image}}'/>      
+        </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <a *ngFor="let product of products" class="col-1-4">
+    <div class="module product">
+      <h4>{{product.name}} : {{product.price}}</h4> 
+      <div  *ngFor="let image of product.images" >
+        <img style="width: 75px; height: 70px" src='{{image}}'/>      
+      </div>
     </div>
   </a>
-</div>-->
+</div>
 
-<app-search></app-search>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../product/services';  
+import { Product } from '../product/models';
+import { MatGridListModule } from '@angular/material'; 
 
 @Component({
   selector: 'app-dashboard',
@@ -6,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
-  constructor() { }
-
+  products: Product[] = [];
+  
+  constructor(private productService: ProductService) { }
+  
   ngOnInit() {
+     this.getHeroes();
+  }
+  
+  getHeroes(): void {
+     this.productService.getProducts()
+       .subscribe(products => this.products = products.slice(0, 50));
   }
 
 }
