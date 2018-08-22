@@ -1,10 +1,72 @@
-<app-search></app-search>
+<mat-card>
+    <mat-card-content>
+      <h2 class="example-h2">Progress bar configuration</h2>
+  
+      <section class="example-section">
+        <label class="example-margin">Color:</label>
+        <mat-radio-group [(ngModel)]="color">
+          <mat-radio-button class="example-margin" value="primary">
+            Primary
+          </mat-radio-button>
+          <mat-radio-button class="example-margin" value="accent">
+            Accent
+          </mat-radio-button>
+          <mat-radio-button class="example-margin" value="warn">
+            Warn
+          </mat-radio-button>
+        </mat-radio-group>
+      </section>
+  
+      <section class="example-section">
+        <label class="example-margin">Mode:</label>
+        <mat-radio-group [(ngModel)]="mode">
+          <mat-radio-button class="example-margin" value="determinate">
+            Determinate
+          </mat-radio-button>
+          <mat-radio-button class="example-margin" value="indeterminate">
+            Indeterminate
+          </mat-radio-button>
+          <mat-radio-button class="example-margin" value="buffer">
+            Buffer
+          </mat-radio-button>
+          <mat-radio-button class="example-margin" value="query">
+            Query
+          </mat-radio-button>
+        </mat-radio-group>
+      </section>
+  
+      <section class="example-section" *ngIf="mode === 'determinate' || mode === 'buffer'">
+        <label class="example-margin">Progress:</label>
+        <mat-slider class="example-margin" [(ngModel)]="value"></mat-slider>
+      </section>
+      <section class="example-section" *ngIf="mode === 'buffer'">
+        <label class="example-margin">Buffer:</label>
+        <mat-slider class="example-margin" [(ngModel)]="bufferValue"></mat-slider>
+      </section>
+    </mat-card-content>
+  </mat-card>
+<mat-card>
+    <mat-card-content>
+      <h2 class="example-h2">Result</h2>
+  
+      <section class="example-section">
+        <mat-progress-bar
+            class="example-margin"
+            [color]="color"
+            [mode]="mode"
+            [value]="value"
+            [bufferValue]="bufferValue">
+        </mat-progress-bar>
+      </section>
+    </mat-card-content>
+  </mat-card>
 <div class="grid grid-pad">
+  <!--<mat-progress-bar mode="query" value="40"></mat-progress-bar>-->
   <mat-grid-list cols="4" rowHeight="100px">
     <mat-grid-tile *ngFor="let product of products">
         {{product.name}} : {{product.price}}
         <div  *ngFor="let image of product.images" >
-            <img style="width: 75px; height: 70px" src='{{image}}'/>      
+            <img style="width: 100x; height: 100px" src='{{image}}' imageZoom='{{image}}' clickToZoom="true"/>      
         </div>
     </mat-grid-tile>
   </mat-grid-list>
@@ -12,7 +74,7 @@
     <div class="module product">
       <h4>{{product.name}} : {{product.price}}</h4> 
       <div  *ngFor="let image of product.images" >
-        <img style="width: 75px; height: 70px" src='{{image}}'/>      
+        <img style="width: 100px; height: 100px" src='{{image}}' imageZoom='assets/test/images/zoom.jpg' lensStyle="Window" lensWidth=1000 lensHeight=1000/>      
       </div>
     </div>
   </a>

@@ -1,8 +1,13 @@
 <div class="header">
-    <img src="assets/images/eatFresh.JPG" alt="" />
-    <h1>{{title}}</h1>
+  <!--<a routerLink="/dashboard"><img src="assets/images/eatFresh.JPG"/></a>
+  <h1>{{title}}</h1>-->
+  <app-search></app-search>
+    <!--<button class="button button-stable button-clear" ng-click="myFunction()">
+      <img src="assets/images/eatFresh.JPG">
+    </button>--
+    <a (click)="myTypeScriptFunction()"> <img src="assets/images/eatFresh.JPG"/></a>-->
 </div>
 <nav>
-  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/dashboard"></a>
 </nav>
 <router-outlet></router-outlet>
